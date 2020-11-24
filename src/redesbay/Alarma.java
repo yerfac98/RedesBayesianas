@@ -20,7 +20,7 @@ public class Alarma {
     private double[] ValTerre = {0.002, 0.998};
     private double[][] ValAlarma = {{0.95, 0.05}, {0.94, 0.06}, {0.29, 0.71}, {0.001, 0.999}};
     private double[] ValJuan = {0.90, 0.05};
-    double[] dataMaria = {0.70, 0.01};
+    double[] ValMaria = {0.70, 0.01};
 
     double resJuan;
     double resMaria, belief;
@@ -47,7 +47,7 @@ public class Alarma {
         BayesNetHelper.setProbabilityValues(Alarma, "noRob", "siTerr", ValAlarma[2][0], ValAlarma[2][1]);
         BayesNetHelper.setProbabilityValues(Alarma, "noRob", "noTerr", ValAlarma[3][0], ValAlarma[3][1]);
         BayesNetHelper.setProbabilityValues(juanllama, "siAlarm", "noAlarm", ValJuan[0], ValJuan[1]);
-        BayesNetHelper.setProbabilityValues(mariaLlama, "siAlarm", "noAlarm", dataMaria[0], dataMaria[1]);
+        BayesNetHelper.setProbabilityValues(mariaLlama, "siAlarm", "noAlarm", ValMaria[0], ValMaria[1]);
     }
 
     public void siRobo(boolean hayRobo) {
@@ -144,8 +144,8 @@ public class Alarma {
      * @param valMaria the ValMaria to set
      */
     public void setValMaria(double[] valMaria) {
-        this.dataMaria = valMaria;
-        BayesNetHelper.setProbabilityValues(mariaLlama, "OnAlarm", "ofAlarm", dataMaria[0], dataMaria[1]);
+        this.ValMaria = valMaria;
+        BayesNetHelper.setProbabilityValues(mariaLlama, "OnAlarm", "ofAlarm", ValMaria[0], ValMaria[1]);
     }
 
 
